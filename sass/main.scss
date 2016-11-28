@@ -9,21 +9,25 @@ html {
   box-sizing: border-box;
 }
 
+body {
+	font-size: 2rem;
+}
+
 h2 {
-  font-size: 3em;
+  font-size: 4rem;
   //@include roboto(light, 32px, #000000);
 }
 
-p {
-  font-size: 1.8rem;
-}
 
 .lineThrought {
   text-decoration: line-through;
 }
 
-.light-grey {
-  background-color: light-grey;
+.lightGrey {
+  background-color: lightgrey;
 }
 
+ul {
+	list-style: none;
+}
 

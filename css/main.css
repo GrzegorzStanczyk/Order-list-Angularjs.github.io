@@ -3,14 +3,17 @@ html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
-h2 {
-  font-size: 3em; }
+body {
+  font-size: 2rem; }
 
-p {
-  font-size: 1.8rem; }
+h2 {
+  font-size: 4rem; }
 
 .lineThrought {
   text-decoration: line-through; }
 
-.light-grey {
-  background-color: light-grey; }
+.lightGrey {
+  background-color: lightgrey; }
+
+ul {
+  list-style: none; }
