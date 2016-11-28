@@ -15,11 +15,20 @@
   <div ng-controller="ExampleController">
     <h2>Order list</h2>
     <ul ng-if="products.length">
-      <li ng-repeat="product in products" ng-class="{lightGrey: $odd, lineThrought: product.bought != false}">{{ $index+1 }} {{ product.text }}
+      <li ng-repeat="product in products" ng-class="{lightGrey: $odd, lineThrought: product.bought === true}" ng-click="toggle($event)">{{ $index+1 }} {{ product.text }}
         <button ng-click="editProduct($event)">Edit</button>
         <button ng-click="clearProduct($event)">X</button>
       </li>
     </ul>
+   <!--  <div>
+        <ul>
+            <li ng-repeat="product in products">{{ product.text }}</li>
+        </ul>
+    </div> -->
+    <label for="productText">
+        <input id="productText" type="text" ng-model="product.text">
+        <button type="button" ng-click="addProduct()">Add</button>
+    </label>
     <button ng-click="clearCategories()">Clear list</button>
     <button ng-click="clearBought()">Clear bought</button>
     <button ng-click="addCategories()">Add list</button>

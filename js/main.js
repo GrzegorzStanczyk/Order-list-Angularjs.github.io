@@ -2,39 +2,54 @@ var app = angular.module('exampleApp', []);
 
 app.controller('ExampleController', ['$scope', function($scope){
 
-	$scope.products = [
-		{ text: 'Milk',   bought: false },
-		{ text: 'Bread',  bought: true },
-		{ text: 'Butter', bought: true },
-		{ text: 'Eggs',   bought: false },
-		{ text: 'Tea',    bought: false }
-	];
 
-	$scope.clearCategories = function() {
-		$scope.products =[];
-	};
 
-	$scope.clearBought = function() {
-		$scope.products = $scope.products.filter(function(products) {
-			return products.bought !== true;
-		});
-	};
+    $scope.products = [
+        { text: 'Milk',   bought: false },
+        { text: 'Bread',  bought: true },
+        { text: 'Butter', bought: true },
+        { text: 'Eggs',   bought: false },
+        { text: 'Tea',    bought: false }
+    ];
 
-	$scope.addCategories = function() {
-		$scope.products =[
-			{ text: 'Milk',   bought: false },
-			{ text: 'Bread',  bought: true },
-			{ text: 'Butter', bought: true },
-			{ text: 'Eggs',   bought: false },
-			{ text: 'Tea',    bought: false }
-		];
-	};
+    $scope.clearCategories = function() {
+        $scope.products =[];
+    };
 
-	$scope.clearProduct = function($event) {
-		$event.currentTarget.parentNode.remove();
-	};
+    $scope.clearBought = function() {
+        $scope.products = $scope.products.filter(function(products) {
+            return products.bought !== true;
+        });
+    };
 
-	$scope.editProduct = function($event) {
-		$event.currentTarget.parentNode.remove();
-	};
+    $scope.addCategories = function() {
+        $scope.products =[
+            { text: 'Milk',   bought: false },
+            { text: 'Bread',  bought: true },
+            { text: 'Butter', bought: true },
+            { text: 'Eggs',   bought: false },
+            { text: 'Tea',    bought: false }
+        ];
+    };
+
+    $scope.clearProduct = function($event) {
+        $event.currentTarget.parentNode.remove();
+    };
+
+    $scope.editProduct = function($event) {
+        $event.currentTarget.parentNode.remove();
+    };
+
+    $scope.addProduct = function() {
+        var product = $scope.product;
+        $scope.product = {}; // Clean up the form fields
+        $scope.products.push(product);
+        console.log($scope.products);
+    };
+
+    $scope.toggle = function($event) {
+        console.log($event.target);
+        $scope.products.bought = true;
+    };
+
 }]);
