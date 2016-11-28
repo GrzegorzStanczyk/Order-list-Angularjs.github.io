@@ -1,0 +1,29 @@
+// @import '_vars';
+// @import '_mixins';
+// @import '_rwd';
+// @import '_setup';
+// @import '_swiper';
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-size: 3em;
+  //@include roboto(light, 32px, #000000);
+}
+
+p {
+  font-size: 1.8rem;
+}
+
+.lineThrought {
+  text-decoration: line-through;
+}
+
+.light-grey {
+  background-color: light-grey;
+}
+
+

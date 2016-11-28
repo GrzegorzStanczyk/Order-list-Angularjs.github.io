@@ -1,0 +1,16 @@
+html {
+  font-size: 62.5%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+h2 {
+  font-size: 3em; }
+
+p {
+  font-size: 1.8rem; }
+
+.lineThrought {
+  text-decoration: line-through; }
+
+.light-grey {
+  background-color: light-grey; }

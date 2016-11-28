@@ -1,0 +1,115 @@
+@mixin roboto($weight, $size, $color) {
+    font-family: $roboto;
+    font-weight: $weight;
+    font-size: $size;
+    color: $color;
+}
+
+@mixin transition($element, $time, $effect) {
+    -webkit-transition: $element, $time, $effect;
+    -moz-transition: $element, $time, $effect;
+    -o-transition: $element, $time, $effect;
+    -ms-transition: $element, $time, $effect;
+    transition: $element, $time, $effect;
+}
+
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin makeButton($padding, $background, $border-width, $radius, $active-padding) {
+    @include roboto(500, 18px, #fff);
+    @include transition(all, .4s, ease-in-out);
+    padding: $padding;
+    background: $background;
+    border: $border-width solid lighten($background, 20px);
+    border-radius: $radius;
+    text-transform: uppercase;
+
+    &:active {
+        background: darken($background, 10px);
+        padding: $active-padding;
+    }
+
+    &:hover {
+        background: lighten($background, 10px);
+    }
+}
+
+@mixin offerCircle($width, $height, $background, $radius, $icon-size, $icon-color) {
+  width: $width;
+  height: $height;
+  background: $background;
+  border-radius: $radius;
+
+  i {
+    display: flex;
+    justify-content: center;
+    line-height: $height;
+    font-size: $icon-size;
+    color: $icon-color;
+  }
+}
+
+//[#3] Szybki Devtrick - opis zdjęcia po najechaniu
+@mixin transform($animate) {
+  -webkit-transform: $animate;
+  -moz-transform: $animate;
+  -o-transform: $animate;
+  -ms-transform: $animate;
+  transform: $animate;
+}
+
+@mixin makeCaption($width, $height, $background-hover, $background-active, $pos-top, $pos-bottom, $pos-left, $pos-right, $base-pos-top, $base-pos-bottom, $base-pos-left, $base-pos-right, $align, $transform, $weight, $size, $color, $animate, $fig-width, $fig-height) {
+    @include size($width, $height);
+    position: relative;
+
+    &:hover {
+        figcaption {
+            top: $base-pos-top;
+            bottom: $base-pos-bottom;
+            left: $base-pos-left;
+            right: $base-pos-right;
+            opacity: 1;
+            overflow: hidden;
+        }
+
+        img {
+            @include transform($animate);
+            overflow: hidden;
+        }
+
+    }
+
+    &:active {
+        figcaption {
+            background: $background-active;
+            font-size: $size+4px;
+        }
+    }
+
+    img {
+        @include size(100%, auto);
+        @include transition(all, .7s, ease-in-out);
+        overflow: hidden;
+    }
+
+    figcaption {
+        @include size($fig-width, $fig-height);
+        @include transition(all, .9s, ease-in-out);
+        @include roboto($weight, $size, $color);
+        background: $background-hover;
+        position: absolute;
+        opacity: 0;
+        top: $pos-top;
+        bottom: $pos-bottom;
+        left: $pos-left;
+        right: $pos-right;
+        text-align: $align;
+        line-height: $fig-height;
+        text-transform: $transform;
+        overflow: hidden;
+
+    }
+}
