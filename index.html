@@ -26,7 +26,8 @@
         </ul>
     </div> -->
 
-    <input type="text" ng-model="product.text">
+    <input type="text" ng-model="product.text"
+   ng-keydown="$event.keyCode === 13 && addProduct()">
     <button type="button" ng-click="addProduct()">Add</button>
 
     <button ng-click="clearCategories()">Clear list</button>

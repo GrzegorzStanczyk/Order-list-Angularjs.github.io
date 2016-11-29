@@ -37,7 +37,7 @@ app.controller('ExampleController', ['$scope', function($scope){
     };
 
     $scope.editProduct = function($event) {
-        $event.currentTarget.parentNode.remove();
+        $event.currentTarget.parentNode.input();
     };
 
     $scope.addProduct = function() {
@@ -49,8 +49,6 @@ app.controller('ExampleController', ['$scope', function($scope){
 
     $scope.toggle = function($event, $index) {
         console.log($scope.products[$index].bought);
-        // $scope.products.bought = true;
-        // $event.bought = !$event.bought;
         $scope.products[$index].bought = !$scope.products[$index].bought;
     };
 
