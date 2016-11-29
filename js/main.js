@@ -47,9 +47,11 @@ app.controller('ExampleController', ['$scope', function($scope){
         console.log($scope.products);
     };
 
-    $scope.toggle = function($event) {
-        console.log($event.target);
-        $scope.products.bought = true;
+    $scope.toggle = function($event, $index) {
+        console.log($scope.products[$index].bought);
+        // $scope.products.bought = true;
+        // $event.bought = !$event.bought;
+        $scope.products[$index].bought = !$scope.products[$index].bought;
     };
 
 }]);
